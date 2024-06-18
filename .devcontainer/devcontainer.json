@@ -1,0 +1,85 @@
+{
+    "name": "playground-devcontainer",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                // Shell config
+                "terminal.integrated.shell.linux": "/bin/zsh",
+                "terminal.integrated.ignoreProcessNames": [
+                    "starship",
+                    "oh-my-posh",
+                    "bash"
+                ],
+                "terminal.integrated.shellIntegration.enabled": false,
+                // Appearance
+                "editor.fontSize": 16,
+                "workbench.iconTheme": "catppuccin-mocha",
+                "workbench.colorTheme": "Catppuccin Mocha",
+                "window.zoomLevel": 1,
+                "catppuccin-icons.associations.folders": {
+                    ".venv": "folder_direnv"
+                },
+                // Linting
+                "editor.formatOnSave": true,
+                // Linting - Python
+                "black-formatter.args": [
+                    "--line-length",
+                    "150",
+                    "--skip-magic-trailing-comma",
+                    "--skip-string-normalization"
+                ],
+                "pyright.disableTaggedHints": true,
+                // Linitng - Go
+                "go.inlayHints.compositeLiteralFields": true,
+                "go.inlayHints.compositeLiteralTypes": true,
+                "go.inlayHints.functionTypeParameters": true,
+                "go.inlayHints.parameterNames": true,
+                "go.inlayHints.rangeVariableTypes": true,
+                "go.inlayHints.constantValues": true,
+                // Formatting
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter"
+                },
+                "[go]": {
+                    "editor.insertSpaces": true,
+                    "editor.formatOnSave": true,
+                    "editor.defaultFormatter": "golang.go"
+                },
+                "[dockerfile]": {
+                    "editor.defaultFormatter": "foxundermoon.shell-format"
+                },
+                "shellformat.path": "",
+                // Testing
+                "python.testing.pytestArgs": [ // (this should be in worksplace settings, won't work in user settings)
+                    "tests",
+                    "--color=yes"
+                ],
+                "python.experiments.optInto": [
+                    "pythonTestAdapter"
+                ],
+                "testing.coverageToolbarEnabled": true
+            },
+            "extensions": [
+                "catppuccin.catppuccin-vsc",
+                "catppuccin.catppuccin-vsc-icons",
+                "charliermarsh.ruff",
+                "eamodio.gitlens",
+                "foxundermoon.shell-format",
+                "ms-azuretools.vscode-docker",
+                "ms-pyright.pyright",
+                "ms-python.black-formatter",
+                "ms-python.debugpy",
+                "ms-python.python",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers",
+                "ms-toolsai.vscode-jupyter-cell-tags",
+                "ms-toolsai.vscode-jupyter-slideshow"
+            ]
+        }
+    }
+}
