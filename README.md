@@ -1,1 +1,0 @@
-The aim of this repo is to automate my general work environment. So I just need to clone this repo into the project repo and open vscode devcontainer including everything I need.
